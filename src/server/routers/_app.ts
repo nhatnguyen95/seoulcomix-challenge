@@ -1,21 +1,25 @@
-import { z } from "zod";
 import { procedure, router } from "../trpc";
 import { prisma } from "@/utils/prisma";
+import { z } from "zod";
+
 export const appRouter = router({
   getRestaurants: procedure.query(async () => {
     const restaurants = await prisma.restaurant.findMany();
     return restaurants;
   }),
-  hello: procedure
+  addFavorite: procedure
     .input(
       z.object({
-        text: z.string(),
+        id: z.string(),
+        isFavorite: z.boolean(),
       })
     )
-    .query((opts) => {
-      return {
-        greeting: `helloaa ${opts.input.text} `,
-      };
+    .mutation(async ({ input }) => {
+      const { id, isFavorite } = input;
+      return await prisma.restaurant.update({
+        where: { id },
+        data: { isFavorite },
+      });
     }),
 });
 
