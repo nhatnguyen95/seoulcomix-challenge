@@ -1,11 +1,8 @@
 import SearchInput from "@/pages/components/SearchBar";
-import { trpc } from "../utils/trpc";
 import TabBar from "./components/TabBar";
 import BottomTab from "./components/BottomTab";
+import ListRestaurant from "./components/ListRestaurant";
 export default function Home() {
-  const restaurants = trpc.getRestaurants.useQuery();
-  console.log("restaurants", restaurants.data);
-
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-200 text-foreground">
       <div className="w-[400px] flex flex-col min-h-screen bg-card">
@@ -17,9 +14,9 @@ export default function Home() {
         </header>
         <main className="p-4 flex-1 bg-white flex flex-col ">
           <TabBar />
-          {restaurants.data?.length} ss
+          <ListRestaurant />
         </main>
-        <footer className="p-4 text-center  sm:p-8">
+        <footer className="p-4 text-center sm:p-8">
           <BottomTab />
         </footer>
       </div>
