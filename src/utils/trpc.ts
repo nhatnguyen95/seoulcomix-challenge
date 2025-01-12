@@ -1,6 +1,6 @@
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
-import { ssrPrepass } from "@trpc/next/ssrPrepass";
+
 import type { AppRouter } from "../server/routers/_app";
 
 function getBaseUrl() {
@@ -25,6 +25,5 @@ export const trpc = createTRPCNext<AppRouter>({
       ],
     };
   },
-  ssr: true,
-  ssrPrepass,
+  ssr: false,
 });
