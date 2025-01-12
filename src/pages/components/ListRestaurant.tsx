@@ -41,7 +41,7 @@ const ListRestaurantItem: React.FC<{
       <Image
         onClick={handleFavorite}
         className={cn(
-          "absolute justify-end flex right-2 top-2",
+          "absolute justify-end flex right-2 top-2 cursor-pointer",
           item.isFavorite && "bg-red-400 rounded-full"
         )}
         src={Favorite}
