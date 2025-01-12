@@ -13,6 +13,7 @@
   "dependencies": {
     "@prisma/client": "^6.2.1",
     "@radix-ui/react-scroll-area": "^1.2.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tanstack/react-query": "^5.64.0",
     "@trpc/client": "^11.0.0-rc.695",
     "@trpc/next": "^11.0.0-rc.695",
