@@ -50,11 +50,11 @@ const ListRestaurant: React.FC = () => {
 
   console.log("data", dataShowing);
   return (
-    <>
+    <ScrollArea>
       {dataShowing.map((item) => (
         <ListRestaurantItem item={item} key={item.id} />
       ))}
-    </>
+    </ScrollArea>
   );
 };
 

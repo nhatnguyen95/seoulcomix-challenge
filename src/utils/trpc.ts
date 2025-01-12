@@ -12,7 +12,6 @@ function getBaseUrl() {
   return `http://localhost:${process.env.PORT ?? 3000}`;
 }
 export const trpc = createTRPCNext<AppRouter>({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   config(opts) {
     return {
       links: [
