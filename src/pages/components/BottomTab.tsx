@@ -16,8 +16,7 @@ const BottomTabItem: React.FC<{
   return (
     <div
       className={cn(
-        "rounded-sm flex flex-col justify-center items-center",
-        isActive && "bg-gray-50"
+        "rounded-xl px-4 flex flex-col justify-between py-1 items-center"
       )}
     >
       <Image src={img} alt="Icon" width={18} height={18} />
