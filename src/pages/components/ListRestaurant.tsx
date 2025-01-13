@@ -6,6 +6,7 @@ import StarsIcon from "@/assets/icons/starts.svg";
 import Star from "@/assets/icons/star-icon.svg";
 import Favorite from "@/assets/icons/favorite.svg";
 import { cn } from "@/lib/utils";
+import { Spinner } from "@/components/Spinner";
 
 type RestaurantItem = {
   id: string;
@@ -38,16 +39,20 @@ const ListRestaurantItem: React.FC<{
   };
   return (
     <div className="relative">
-      <Image
-        onClick={handleFavorite}
+      <div
         className={cn(
           "absolute justify-end flex right-2 top-2 cursor-pointer",
-          item.isFavorite && "bg-red-400 rounded-full"
+          item.isFavorite &&
+            !favoriteMutation.isPending &&
+            "bg-red-400 rounded-full"
         )}
-        src={Favorite}
-        alt="favorite-icon"
-      />
-
+      >
+        {favoriteMutation.isPending ? (
+          <Spinner />
+        ) : (
+          <Image onClick={handleFavorite} src={Favorite} alt="favorite-icon" />
+        )}
+      </div>
       <div className="flex flex-col flex-wrap">
         <div
           style={{ width: 370, height: 200 }}

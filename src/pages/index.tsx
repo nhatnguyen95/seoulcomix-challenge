@@ -15,8 +15,9 @@ export default function Home() {
         <main className="p-4 flex-1 bg-white flex flex-col ">
           <TabBar />
           <ListRestaurant />
+          <div className="h-20" />
         </main>
-        <footer className="p-4 text-center sm:p-8">
+        <footer className="p-4 text-center sm:p-8 fixed block bottom-0 w-[400px] bg-white">
           <BottomTab />
         </footer>
       </div>
